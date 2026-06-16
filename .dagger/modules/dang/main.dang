@@ -15,7 +15,7 @@ type Dang {
     """
     Dang source.
     """
-    dangSource: Directory! = Dagger.git("https://github.com/vito/dang.git").ref(version).tree,
+    dangSource: Directory! = Dagger.git("https://github.com/vito/dang.git").ref(version).tree(depth: 1),
   ) {
     self.excludePaths = excludePaths
     self.dangSource = dangSource
