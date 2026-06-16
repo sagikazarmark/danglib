@@ -1,0 +1,29 @@
+type Danglib {
+  let excludePackages: [String!]!
+
+  new(
+    """
+    Exclude packages from testing.
+    """
+    excludePackages: [String!]! = [],
+  ) {
+    self.excludePackages = excludePackages
+
+    self
+  }
+
+  """
+  Run a Dang packages.
+  """
+  test(ws: Workspace!): Void @check {
+    let source = ws.directory("/lib", gitignore: true, exclude: self.excludePackages)
+
+    source
+      .entries
+      .reject { !_.hasSuffix("/") }
+      .map { _.trimSuffix("/") }
+      .each { Dagger.dang.run(ws, source, _).sync }
+
+    null
+  }
+}

@@ -1,0 +1,8 @@
+[modules.danglib]
+source = ".dagger/modules/danglib"
+entrypoint = true
+
+settings.excludePackages = "base64"
+
+[modules.dang]
+source = ".dagger/modules/dang"

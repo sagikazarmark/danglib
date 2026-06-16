@@ -1,0 +1,4 @@
+assert { decode("") == "" }
+assert { decode("aGVsbG8=") == "hello" }
+assert { decode("aGVsbG8gd29ybGQ=") == "hello world" }
+assert { decode("aMOpbGxv") == "héllo" }

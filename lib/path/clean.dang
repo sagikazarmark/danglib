@@ -1,0 +1,37 @@
+clean(path: String!): String! {
+  if (path == "") {
+    return "."
+  }
+
+  let absolute = path.hasPrefix(separator)
+  let initial: [String!]! = []
+  let parts = path
+    .split(separator)
+    .reduce(initial) { parts, part =>
+      case {
+        part == "" => parts
+        part == "." => parts
+        part == ".." and !parts.isEmpty and parts[parts.length - 1] != ".." => parts.dropLast
+        part == ".." and absolute => parts
+        else => parts + [part]
+      }
+    }
+
+  let joined = parts.join(separator)
+
+  let cleaned = if (absolute and joined != "") {
+    separator + joined
+  } else {
+    joined
+  }
+
+  if (cleaned == "") {
+    if (absolute) {
+      separator
+    } else {
+      "."
+    }
+  } else {
+    cleaned
+  }
+}

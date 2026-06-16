@@ -1,0 +1,31 @@
+isRelativeTo(path: String!, base: String!): Boolean! {
+  let cleanBase = clean(base)
+  let cleanPath = clean(path)
+
+  if (cleanBase.hasPrefix(separator) != cleanPath.hasPrefix(separator)) {
+    return false
+  }
+
+  if (cleanBase == cleanPath) {
+    return true
+  }
+
+  if (cleanBase == separator) {
+    return cleanPath.hasPrefix(separator)
+  }
+
+  if (cleanBase == ".") {
+    return cleanPath != ".." and !cleanPath.hasPrefix(".." + separator)
+  }
+
+  cleanPath.hasPrefix(cleanBase + separator)
+}
+
+mustBeRelativeTo(path: String!, base: String!): String! {
+  let cleanPath = clean(path)
+  if (!isRelativeTo(cleanPath, base)) {
+    raise "path escapes base: " + path + " is not relative to " + base
+  }
+
+  cleanPath
+}

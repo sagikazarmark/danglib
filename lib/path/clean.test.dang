@@ -1,0 +1,11 @@
+# empty
+assert { clean("") == "." }
+
+# absolute
+assert { clean("/a/../b") == "/b" }
+assert { clean("/a//./b/") == "/a/b" }
+assert { clean("/") == "/" }
+
+# relative
+assert { clean("a/./b") == "a/b" }
+assert { clean("a/../../b") == "../b" }

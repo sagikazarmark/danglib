@@ -1,0 +1,20 @@
+sortWith(list: [a]!, &compare(left: a, right: a): Int!): [a]! {
+  let initial: [a]! = []
+  list.reduce(initial) { sorted, item =>
+    insert(sorted, item) { left, right => compare(left, right) }
+  }
+}
+
+let insert(sorted: [a]!, item: a, &compare(left: a, right: a): Int!): [a]! {
+  if (sorted.isEmpty) {
+    return [item]
+  }
+
+  let first = sorted[0]
+
+  if (compare(item, first) <= 0) {
+    [item] + sorted
+  } else {
+    [first] + insert(sorted.dropFirst, item) { left, right => compare(left, right) }
+  }
+}

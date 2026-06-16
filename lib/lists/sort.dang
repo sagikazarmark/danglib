@@ -1,0 +1,11 @@
+sort(list: [Int!]!): [Int!]! {
+  sortWith(list) { left, right =>
+    if (left < right) {
+      -1
+    } else if (left > right) {
+      1
+    } else {
+      0
+    }
+  }
+}
