@@ -11,11 +11,11 @@ type Dang {
     """
     Dang version.
     """
-    version: String! = "bfbce2f4302cb9b11d2809e9e6fa59b575b0de95",
+    version: String,
     """
     Dang source.
     """
-    dangSource: Directory! = Dagger.git("https://github.com/vito/dang.git").ref(version).tree(depth: 1),
+    dangSource: Directory! = Dagger.git("https://github.com/vito/dang.git").ref(version ?? "HEAD").tree(depth: 1),
   ) {
     self.excludePaths = excludePaths
     self.dangSource = dangSource

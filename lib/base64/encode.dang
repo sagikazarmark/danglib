@@ -1,7 +1,3 @@
-encode(s: String!): String! {
-  Dagger
-    .container
-    .from("busybox:1.37.0@sha256:9532d8c39891ca2ecde4d30d7710e01fb739c87a8b9299685c63704296b16028")
-    .withExec(["base64", "-w", "0"], stdin: s)
-    .stdout
+encode(s: String!): String! @deprecated("Dang added toBase64") {
+  s.toBase64
 }
