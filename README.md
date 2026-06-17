@@ -6,7 +6,6 @@ Reusable Dang packages for Dagger modules.
 
 Available built-in packages:
 
-- `base64`
 - `lists`
 - `maps`
 - `path`

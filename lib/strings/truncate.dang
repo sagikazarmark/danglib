@@ -1,3 +1,0 @@
-truncate(s: String!, maxLength: Int!): String! @deprecated("Dang added truncate function") {
-  s.truncate(maxLength)
-}

@@ -1,3 +1,0 @@
-decode(s: String!): String! @deprecated("Dang added fromBase64") {
-  s.fromBase64
-}

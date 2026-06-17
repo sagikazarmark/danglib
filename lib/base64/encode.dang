@@ -1,3 +1,0 @@
-encode(s: String!): String! @deprecated("Dang added toBase64") {
-  s.toBase64
-}

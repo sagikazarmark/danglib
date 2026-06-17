@@ -1,4 +1,0 @@
-assert { encode("") == "" }
-assert { encode("hello") == "aGVsbG8=" }
-assert { encode("hello world") == "aGVsbG8gd29ybGQ=" }
-assert { encode("héllo") == "aMOpbGxv" }
