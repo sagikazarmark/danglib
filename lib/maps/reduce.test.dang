@@ -1,9 +1,11 @@
-let sum = reduce(["a": 1, "b": 2, "c": 3], 0) { acc, key, value => acc + value }
-assert { sum == 6 }
+{
+  let sum = reduce(["a": 1, "b": 2, "c": 3], 0) { acc, key, value => acc + value }
+  assert { sum == 6 }
 
-let combined = reduce(["a": "x", "b": "y"], "") { acc, key, value => acc + key + value }
-assert { combined == "axby" }
+  let combined = reduce(["a": "x", "b": "y"], "") { acc, key, value => acc + key + value }
+  assert { combined == "axby" }
 
-let empty: Map[Int!]! = [:]
-let result = reduce(empty, 42) { acc, key, value => acc + value }
-assert { result == 42 }
+  let empty: Map[Int!]! = [:]
+  let result = reduce(empty, 42) { acc, key, value => acc + value }
+  assert { result == 42 }
+}

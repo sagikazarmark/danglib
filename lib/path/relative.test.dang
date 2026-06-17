@@ -1,25 +1,27 @@
-# exact matches
-assert { isRelativeTo("/app", "/app") }
-assert { isRelativeTo("app", "app") }
+{
+  # exact matches
+  assert { isRelativeTo("/app", "/app") }
+  assert { isRelativeTo("app", "app") }
 
-# nested paths
-assert { isRelativeTo("/app/src", "/app") }
-assert { isRelativeTo("app/src", "app") }
+  # nested paths
+  assert { isRelativeTo("/app/src", "/app") }
+  assert { isRelativeTo("app/src", "app") }
 
-# root and current-directory bases
-assert { isRelativeTo("/app", "/") }
-assert { isRelativeTo("app/src", ".") }
-assert { isRelativeTo(".", ".") }
+  # root and current-directory bases
+  assert { isRelativeTo("/app", "/") }
+  assert { isRelativeTo("app/src", ".") }
+  assert { isRelativeTo(".", ".") }
 
-# normalization before comparison
-assert { isRelativeTo("/app/tmp/../src", "/app") }
-assert { isRelativeTo("app/./src", "app") }
+  # normalization before comparison
+  assert { isRelativeTo("/app/tmp/../src", "/app") }
+  assert { isRelativeTo("app/./src", "app") }
 
-# mismatches and boundary checks
-assert { !isRelativeTo("app", "/app") }
-assert { !isRelativeTo("/app", "app") }
-assert { !isRelativeTo("/application", "/app") }
-assert { !isRelativeTo("../app", ".") }
+  # mismatches and boundary checks
+  assert { !isRelativeTo("app", "/app") }
+  assert { !isRelativeTo("/app", "app") }
+  assert { !isRelativeTo("/application", "/app") }
+  assert { !isRelativeTo("../app", ".") }
 
-assert { mustBeRelativeTo("/app/tmp/../src", "/app") == "/app/src" }
-assert { mustBeRelativeTo("app/./src", "app") == "app/src" }
+  assert { mustBeRelativeTo("/app/tmp/../src", "/app") == "/app/src" }
+  assert { mustBeRelativeTo("app/./src", "app") == "app/src" }
+}

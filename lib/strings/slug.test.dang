@@ -1,2 +1,4 @@
-assert { slug("Hello World") == "hello-world" }
-assert { slug("  Dagger Module  ") == "dagger-module" }
+{
+  assert { slug("Hello World") == "hello-world" }
+  assert { slug("  Dagger Module  ") == "dagger-module" }
+}
