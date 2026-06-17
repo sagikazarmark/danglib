@@ -2,5 +2,7 @@
 source = ".dagger/modules/danglib"
 entrypoint = true
 
+settings.excludePackages = "archive"
+
 [modules.dang]
 source = ".dagger/modules/dang"
