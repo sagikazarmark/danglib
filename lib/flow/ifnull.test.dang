@@ -1,0 +1,11 @@
+{
+  let one: Int
+
+  try {
+    ifNull(one) { raise "one is null" }
+
+    raise "should not run"
+  } catch {
+    err => assert { err.message == "one is null" }
+  }
+}

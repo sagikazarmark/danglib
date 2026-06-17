@@ -1,6 +1,8 @@
-assert { when(1, true) { _ + 1 } == 2 }
-assert { when(1, false) { _ + 1 } == 1 }
-assert { when("value", false) { raise "should not run" } == "value" }
+{
+  assert { when(1, true) { _ + 1 } == 2 }
+  assert { when(1, false) { _ + 1 } == 1 }
+  assert { when("value", false) { raise "should not run" } == "value" }
 
-assert { when(["a"], true) { _ + ["b"] } == ["a", "b"] }
-assert { when(["a"], false) { _ + ["b"] } == ["a"] }
+  assert { when(["a"], true) { _ + ["b"] } == ["a", "b"] }
+  assert { when(["a"], false) { _ + ["b"] } == ["a"] }
+}

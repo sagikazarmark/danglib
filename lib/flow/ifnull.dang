@@ -1,0 +1,7 @@
+let ifNull(_: a, &fn: a): a {
+  if (_ == null) {
+    fn
+  } else {
+    _
+  }
+}
