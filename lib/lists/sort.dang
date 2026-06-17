@@ -1,4 +1,4 @@
-sort(list: [Int!]!): [Int!]! {
+let sort(list: [Int!]!): [Int!]! {
   sortWith(list) { left, right =>
     if (left < right) {
       -1

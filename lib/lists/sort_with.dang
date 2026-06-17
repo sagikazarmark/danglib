@@ -1,4 +1,4 @@
-sortWith(list: [a]!, &compare(left: a, right: a): Int!): [a]! {
+let sortWith(list: [a]!, &compare(left: a, right: a): Int!): [a]! {
   let initial: [a]! = []
   list.reduce(initial) { sorted, item =>
     insert(sorted, item) { left, right => compare(left, right) }

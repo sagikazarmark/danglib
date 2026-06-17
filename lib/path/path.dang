@@ -1,4 +1,4 @@
 """
 Path separator
 """
-separator: String! { "/" }
+let separator: String! { "/" }

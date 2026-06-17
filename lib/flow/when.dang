@@ -1,4 +1,4 @@
-when(condition: Boolean!, _: a, &fn(_: a): a): a {
+let when(condition: Boolean!, _: a, &fn(_: a): a): a {
   if (condition) {
     fn(_)
   } else {

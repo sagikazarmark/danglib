@@ -1,4 +1,4 @@
-clean(path: String!): String! {
+let clean(path: String!): String! {
   let path = path.trimSpace
 
   if (path == "") {

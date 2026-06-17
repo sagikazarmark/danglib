@@ -1,4 +1,4 @@
-isRelativeTo(path: String!, base: String!): Boolean! {
+let isRelativeTo(path: String!, base: String!): Boolean! {
   let cleanBase = clean(base)
   let cleanPath = clean(path)
 

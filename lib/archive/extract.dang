@@ -1,7 +1,7 @@
 """
 Extract an archive file into a directory.
 """
-extract(file: File!, stripComponents: Int = null): Directory! {
+let extract(file: File!, stripComponents: Int = null): Directory! {
   let args = ["bsdtar", "--no-xattrs", "-xf", file.name, "-C", "/work/out"]
 
   if (stripComponents != null) {
