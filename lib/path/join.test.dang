@@ -1,0 +1,4 @@
+assert { join([]) == "." }
+assert { join(["", "a", "", "b", ""]) == "a/b" }
+assert { join(["/a", "b", "..", "c"]) == "/a/c" }
+assert { join(["a", "..", "b"]) == "b" }
