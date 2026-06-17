@@ -9,3 +9,9 @@ assert { clean("/") == "/" }
 # relative
 assert { clean("a/./b") == "a/b" }
 assert { clean("a/../../b") == "../b" }
+
+# whitespace
+assert { clean("a b/./c d") == "a b/c d" }
+assert { clean("/a b/../c d") == "/c d" }
+assert { clean("  a b/./c d  ") == "a b/c d" }
+assert { clean("  /a b/../c d  ") == "/c d" }
