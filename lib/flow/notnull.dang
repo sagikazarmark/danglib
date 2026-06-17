@@ -1,0 +1,7 @@
+let notNull(value: b, _: a, &fn(_: a, value: b!): a): a {
+  if (value != null) {
+    fn(_, value)
+  } else {
+    _
+  }
+}

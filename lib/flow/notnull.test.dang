@@ -1,0 +1,11 @@
+let one: Int = 1
+let noInt: Int = null
+
+assert { notNull(one, 1) { acc, value => acc + value } == 2 }
+assert { notNull(noInt, 1) { _, value => raise "should not run" } == 1 }
+
+let suffix: String = "b"
+let noString: String = null
+
+assert { notNull(suffix, ["a"]) { acc, value => acc + [value] } == ["a", "b"] }
+assert { notNull(noString, ["a"]) { _, value => raise "should not run" } == ["a"] }
