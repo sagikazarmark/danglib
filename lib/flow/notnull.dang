@@ -1,4 +1,4 @@
-let notNull(value: b, _: a, &fn(_: a, value: b!): a): a {
+let notNull(_: a, value: b, &fn(_: a, value: b!): a): a {
   if (value != null) {
     fn(_, value)
   } else {
