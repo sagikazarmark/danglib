@@ -1,0 +1,3 @@
+unless(condition: Boolean!, _: a, &fn(_: a): a): a {
+  when(!condition, _) { fn(_) }
+}

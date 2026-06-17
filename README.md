@@ -6,6 +6,7 @@ Reusable Dang packages for Dagger modules.
 
 Available built-in packages:
 
+- `flow`
 - `lists`
 - `maps`
 - `path`

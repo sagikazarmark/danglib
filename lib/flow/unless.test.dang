@@ -1,0 +1,6 @@
+assert { unless(false, 1) { _ + 1 } == 2 }
+assert { unless(true, 1) { _ + 1 } == 1 }
+assert { unless(true, "value") { raise "should not run" } == "value" }
+
+assert { unless(false, ["a"]) { _ + ["b"] } == ["a", "b"] }
+assert { unless(true, ["a"]) { _ + ["b"] } == ["a"] }
