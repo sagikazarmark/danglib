@@ -1,3 +1,9 @@
 let join(parts: [String!]!): String! {
-  clean(parts.reject { part => part == "" }.join(separator))
+  let parts = parts.reject { part => part == "" }
+
+  if (parts.isEmpty) {
+    ""
+  } else {
+    clean(parts.join(separator))
+  }
 }

@@ -24,4 +24,12 @@
 
   assert { mustBeRelativeTo("/app/tmp/../src", "/app") == "/app/src" }
   assert { mustBeRelativeTo("app/./src", "app") == "app/src" }
+
+  # same root checks
+  assert { hasSameRoot("/foo/bar", "/foo/bar/baz") }
+  assert { hasSameRoot("/foo/bar", "/foo/bar") }
+  assert { sameRoot("/foo/bar", "/foo/bar/baz") }
+  assert { !hasSameRoot("/foo/baz", "/foo/bar/baz") }
+  assert { !hasSameRoot("/foo/bar", "/foo/barista/baz") }
+  assert { !hasSameRoot("foo/bar", "/foo/bar/baz") }
 }

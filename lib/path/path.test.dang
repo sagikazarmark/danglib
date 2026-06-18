@@ -1,3 +1,52 @@
 {
   assert { separator == "/" }
+
+  assert { isAbs("/") }
+  assert { isAbs("/foo") }
+  assert { !isAbs("") }
+  assert { !isAbs("foo") }
+  assert { !isAbs(" /foo") }
+
+  assert { abs("/foo/../bar") == "/bar" }
+  assert { abs("foo/bar") == "/foo/bar" }
+  assert { abs("bar", "/foo") == "/foo/bar" }
+  assert { abs("bar", "foo") == "/foo/bar" }
+  assert { abs("") == "/" }
+  assert { absolute("foo") == "/foo" }
+
+  assert { base("") == "." }
+  assert { base("/") == "/" }
+  assert { base("///") == "/" }
+  assert { base("/foo/bar/") == "bar" }
+  assert { base("foo") == "foo" }
+  assert { base("foo/..") == ".." }
+
+  assert { dir("") == "." }
+  assert { dir("/") == "/" }
+  assert { dir("///") == "/" }
+  assert { dir("/foo/bar") == "/foo" }
+  assert { dir("/foo/bar/") == "/foo/bar" }
+  assert { dir("foo") == "." }
+  assert { dir("foo/bar") == "foo" }
+  assert { dir("///foo") == "/" }
+  assert { dir("foo//bar") == "foo" }
+
+  assert { ext("") == "" }
+  assert { ext("/a/b") == "" }
+  assert { ext("/a/b.go") == ".go" }
+  assert { ext("/a.b/c") == "" }
+  assert { ext("/a.b/c.d") == ".d" }
+  assert { ext(".bashrc") == ".bashrc" }
+  assert { ext("a.") == "." }
+  assert { ext("a.b.c") == ".c" }
+  assert { ext("/") == "" }
+
+  assert { split("") == ["", ""] }
+  assert { split("a") == ["", "a"] }
+  assert { split("a/b") == ["a/", "b"] }
+  assert { split("/a/b") == ["/a/", "b"] }
+  assert { split("/a/b/") == ["/a/b/", ""] }
+  assert { split("///") == ["///", ""] }
+  assert { split("a//b") == ["a//", "b"] }
+  assert { split("a//b")[0] + split("a//b")[1] == "a//b" }
 }

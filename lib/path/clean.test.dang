@@ -14,6 +14,7 @@
   # whitespace
   assert { clean("a b/./c d") == "a b/c d" }
   assert { clean("/a b/../c d") == "/c d" }
-  assert { clean("  a b/./c d  ") == "a b/c d" }
-  assert { clean("  /a b/../c d  ") == "/c d" }
+  assert { clean(" ") == " " }
+  assert { clean("  a b/./c d  ") == "  a b/c d  " }
+  assert { clean("  /a b/../c d  ") == "  /c d  " }
 }
